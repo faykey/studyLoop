@@ -8,7 +8,7 @@ const HeroSection = () => {
         
         <div className="absolute top-60 left-20 w-12 h-12 bg-yellow-300 rounded-full opacity-70"></div>
         <div className="absolute top-1/3 right-20 w-10 h-10 bg-blue-200 rounded-full opacity-50"></div>
-        <div className="absolute top-60 left-[70px] w-6 h-6 bg-green-200 rounded-full opacity-90"></div>
+        <div className="absolute top-60 right-[100px] w-6 h-6 bg-green-200 rounded-full opacity-90"></div>
 
        
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
