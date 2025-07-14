@@ -17,12 +17,15 @@ const Header = () => {
         </div>
 
         <div className="flex items-center space-x-4 mr-0 md:mr-16">
-          <button className="text-[hsla(55,65%,81%,1)] font-semibold hover:text-yellow-600 font-5xl text-lg">
-            Log In
-          </button>
+         <button
+        onClick={() => navigate("/login")}  
+        className="text-[hsla(55,65%,81%,1)] font-semibold hover:text-yellow-600 text-lg"
+      >
+        Log In
+      </button>
 
           <button
-            onClick={() => navigate("/signup-desktop")}
+            onClick={() => navigate("/signup")}
             className="bg-[hsla(142,71%,45%,1)] text-white w-[117px] h-[40px] rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(88,100%,33%,1)] flex items-center justify-center"
           >
             Sign Up

@@ -9,7 +9,7 @@ const HeroSection = () => {
         <div className="absolute top-[100px] md:top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50"></div>
         <div className="absolute top-[120px] lg:top-[180px] lg:right-[65%] right-[75%] w-6 h-6 bg-green-200 rounded-full opacity-90 md:hidden lg:block"></div>
 
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
+        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mt-5">
           Ask Anything.{" "}
           <span
             role="img"
