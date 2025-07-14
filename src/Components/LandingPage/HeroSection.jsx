@@ -3,11 +3,11 @@ import { FiArrowRight, FiPlay } from "react-icons/fi";
 
 const HeroSection = () => {
   return (
-    <div className="min-h-[65vh] mt-20 flex items-center justify-center bg-white text-center relative overflow-hidden px-4">
+    <div className="min-h-[40vh] md:min-h-[65vh] mt-20 mb-10 flex items-center justify-center bg-white text-center relative overflow-hidden px-4">
       <div className="max-w-3xl mx-auto flex flex-col items-center">
-        <div className="absolute top-[30px] md:top-[140px] left-[70px] w-12 h-12 bg-yellow-300 rounded-full opacity-70"></div>
-        <div className="absolute top-[150px] md:top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50"></div>
-        <div className="absolute top-[160px] lg:top-[200px] lg:right-[65%] right-[75%] w-6 h-6 bg-green-200 rounded-full opacity-90 md:hidden lg:block"></div>
+        <div className="absolute bottom-[310px] md:top-[140px] left-[30px] w-12 h-12 bg-yellow-300 rounded-full opacity-70"></div>
+        <div className="absolute top-[100px] md:top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50"></div>
+        <div className="absolute top-[120px] lg:top-[200px] lg:right-[65%] right-[75%] w-6 h-6 bg-green-200 rounded-full opacity-90 md:hidden lg:block"></div>
 
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800">
           Ask Anything.{" "}
@@ -37,12 +37,12 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className="mt-8 flex gap-4 justify-center flex-wrap">
-          <button className="bg-[hsla(142,71%,45%,1)] text-white w-[262px] h-[44px] px-8 rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(88,100%,33%,1)] text-xl flex items-center justify-center gap-2">
+          <button className="bg-[hsla(142,71%,45%,1)] text-white w-[262px] h-[44px] px-8 rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(88,100%,33%,1)] shadow-lg text-xl flex items-center justify-center gap-2">
             Get Early Access
             <FiArrowRight className="text-white text-lg mt-[2px]" />
           </button>
 
-          <button className="bg-[hsla(217,91%,60%,1)] text-white w-[268px] h-[44px] px-8 rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(199,80%,47%,1)] text-lg flex items-center justify-center gap-2">
+          <button className="bg-[hsla(217,91%,60%,1)] text-white w-[268px] h-[44px] px-8 rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(199,80%,47%,1)] mb-3 shadow-lg text-lg flex items-center justify-center gap-2">
             <FiPlay className="text-white text-lg" />
             See How It Works
           </button>
