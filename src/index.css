@@ -53,3 +53,8 @@
 .perandory {
   font-family: 'perandory', sans-serif;
 }
+
+html, body {
+  overflow-x: hidden;
+}
+ 
