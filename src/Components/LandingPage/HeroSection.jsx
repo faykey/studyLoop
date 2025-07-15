@@ -4,11 +4,14 @@ import { FiArrowRight, FiPlay } from "react-icons/fi";
 const HeroSection = () => {
   return (
     <div className="min-h-[40vh] md:min-h-[65vh] mt-20 mb-10 flex items-center justify-center bg-white text-center relative overflow-hidden px-4">
-      <div className="max-w-3xl mx-auto flex flex-col items-center">
-        <div className="absolute bottom-[300px] md:top-[100px] md:left-[80px] left-[10px] w-12 h-12 bg-yellow-300 rounded-full opacity-70"></div>
-        <div className="absolute top-[100px] md:top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50"></div>
-        <div className="absolute top-[120px] lg:top-[180px] lg:right-[65%] right-[75%] w-6 h-6 bg-green-200 rounded-full opacity-90 md:hidden lg:block"></div>
+      
+      {/* Background Circles */}
+      <div className="absolute bottom-[300px] md:top-[100px] md:left-[80px] left-[10px] w-12 h-12 bg-yellow-300 rounded-full opacity-70 z-0"></div>
+      <div className="absolute top-[100px] md:top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50 z-0"></div>
+      <div className="absolute top-[120px] lg:top-[180px] lg:right-[65%] right-[75%] w-6 h-6 bg-green-200 rounded-full opacity-90 z-0 md:hidden lg:block"></div>
 
+      {/* Main Content */}
+      <div className="max-w-3xl mx-auto flex flex-col items-center relative z-10">
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mt-5">
           Ask Anything.{" "}
           <span
@@ -42,7 +45,7 @@ const HeroSection = () => {
             <FiArrowRight className="text-white text-lg mt-[2px]" />
           </button>
 
-          <button className="bg-[hsla(217,91%,60%,1)] text-white w-[268px] h-[44px] px-8 rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(199,80%,47%,1)] mb-3  text-lg flex items-center justify-center gap-2">
+          <button className="bg-[hsla(217,91%,60%,1)] text-white w-[268px] h-[44px] px-8 rounded-[16px] font-semibold shadow-[0_4px_6px_hsla(199,80%,47%,1)] mb-3 text-lg flex items-center justify-center gap-2">
             <FiPlay className="text-white text-lg" />
             See How It Works
           </button>
