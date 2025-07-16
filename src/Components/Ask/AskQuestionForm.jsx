@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBookOpen, FaPaperPlane } from "react-icons/fa";
 import { LuLightbulb } from "react-icons/lu";
-import { PiPaperPlaneTiltDuotone } from "react-icons/pi"; // Paper kite alternative
+import { PiPaperPlaneTiltDuotone } from "react-icons/pi";  
 
 const AskQuestionForm = () => {
   const [subject, setSubject] = useState("");
@@ -24,10 +24,12 @@ const AskQuestionForm = () => {
         <div className="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center text-white text-xl shadow-md">
           <LuLightbulb />
         </div>
-        <div className="absolute -top-2 -right-2 text-sm">✨</div>
+        <div className="absolute -top-1 -right-1 bg-yellow-400 text-[10px] text-black font-bold px-[4px] py-[3px] rounded-full">
+          ✨
+        </div>
       </div>
 
-      <h1 className="text-2xl font-bold text-green-700 z-10">
+      <h1 className="text-3xl font-bold bg-gradient-to-br from-[hsla(142,71%,45%,1)] to-[hsla(142,71%,22%,1)] bg-clip-text text-transparent">
         Ask Your Question!
       </h1>
       <p className="text-gray-600 text-center mb-6 z-10">
@@ -37,7 +39,7 @@ const AskQuestionForm = () => {
       <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md z-10">
         <form onSubmit={handleSubmit} className="space-y-5">
           <div>
-            <label className="font-medium text-sm text-gray-700 flex items-center gap-1 mb-1">
+            <label className="font-medium text-sm text-gray-700 flex items-center gap-1 mb-3">
               <FaBookOpen className="text-purple-600" /> What subject is this
               about? <span className="text-red-500">*</span>
             </label>
@@ -45,7 +47,7 @@ const AskQuestionForm = () => {
               required
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full bg-[hsla(270,100%,98%,1)] border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 focus:ring-2 focus:ring-purple-400 focus:outline-none"
+              className="w-full bg-[hsla(270,100%,98%,1)] text-md border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 focus:ring-2 focus:ring-purple-400 focus:outline-none"
             >
               <option value="">Choose your subject… 📚</option>
               <option value="Math">Math</option>
@@ -58,7 +60,7 @@ const AskQuestionForm = () => {
           </div>
 
           <div>
-            <label className="font-medium text-sm text-gray-700 flex items-center gap-1 mb-1">
+            <label className="font-medium text-sm text-gray-700 flex items-center gap-1 mb-3">
               ✨ What’s your question? <span className="text-red-500">*</span>
             </label>
             <input
@@ -67,12 +69,12 @@ const AskQuestionForm = () => {
               placeholder="Ask anything you want to know!🤔"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
-              className="w-full bg-[hsla(270,100%,98%,1)] border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 focus:ring-2 focus:ring-purple-400 focus:outline-none"
+              className="w-full bg-[hsla(270,100%,98%,1)] text-sm border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 focus:ring-2 focus:ring-purple-400 focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="font-medium text-sm text-gray-700 flex items-center gap-1 mb-1">
+            <label className="font-medium text-sm text-gray-700 flex items-center gap-1 mb-3">
               <PiPaperPlaneTiltDuotone className="text-blue-500" /> More details
               (Optional)
             </label>
@@ -80,7 +82,7 @@ const AskQuestionForm = () => {
               value={details}
               onChange={(e) => setDetails(e.target.value)}
               placeholder="Share more context to get better answers! 💡"
-              className="w-full bg-[hsla(270,100%,98%,1)] border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 h-24 resize-none focus:ring-2 focus:ring-purple-400 focus:outline-none"
+              className="w-full bg-[hsla(270,100%,98%,1)] text-sm border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 h-24 resize-none focus:ring-2 focus:ring-purple-400 focus:outline-none"
             />
           </div>
 
@@ -90,7 +92,7 @@ const AskQuestionForm = () => {
               id="anonymous"
               checked={anonymous}
               onChange={() => setAnonymous(!anonymous)}
-              className="w-5 h-5 text-green-600 accent-green-500 mt-1"
+              className="w-5 h-5 text-[hsla(212,100%,50%,1)] accent-[hsla(212,100%,50%,1)] mt-1"
             />
             <label htmlFor="anonymous" className="text-gray-700 text-sm">
               <span className="block font-medium">Ask anonymously</span>
@@ -109,7 +111,6 @@ const AskQuestionForm = () => {
         </form>
       </div>
 
-      {/* Footer Note */}
       <div className="mt-4 mb-8 z-10">
         <p className="text-xs text-gray-500 bg-white rounded-full px-4 py-1 shadow-sm">
           By posting, you agree to our community guidelines 📜
