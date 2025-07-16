@@ -22,7 +22,7 @@ function App() {
         {/* <Route path="/reset-password" element={<ResetPassword />} /> */}
         <Route path="/home" element={<Home />} />
         <Route path="/ask" element={<AskPage />} />
-        <Route path="/streak" element={<StreakPage />} />
+        <Route path="/streaks" element={<StreakPage />} />
       </Routes>
     </BrowserRouter>
   );

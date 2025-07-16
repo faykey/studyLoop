@@ -70,7 +70,7 @@ const StreakDashboard = () => {
         </div>
       </div>
 
-      {/* Weekly Progress */}
+       
       <div className="bg-white w-full max-w-md rounded-xl p-4 shadow-md border-2 border-[hsla(141,84%,93%,1)]">
         <div className="text-sm font-medium text-gray-700 mb-3">This Week</div>
         <div className="grid grid-cols-7 text-sm text-center">
