@@ -1,5 +1,5 @@
 import React from "react";
-import QuestionCard from "./QuestionCard"; // ✅ Correct import
+import QuestionCard from "./QuestionCard";  
 
 const filters = [
   "All", "Math", "Science", "History", "English", "Computer Science", "Business",
@@ -55,7 +55,7 @@ const questions = [
 
 export default function QuestionFeed() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f9f9fb] to-white px-4 md:px-10 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-[hsla(226,100%,97%,1)] to-white px-4 md:px-10 py-8">
       <h1 className="text-center text-3xl font-bold text-green-800">
         Question Feed
       </h1>
@@ -69,8 +69,8 @@ export default function QuestionFeed() {
             key={item}
             className={`px-4 py-2 rounded-full text-sm font-medium transition ${
               item === "All"
-                ? "bg-green-700 text-white"
-                : "bg-white border border-gray-300 text-gray-600 hover:bg-gray-100"
+                ? "bg-[hsla(142,71%,45%,1)] text-white"
+                : "bg-white border border-[hsla(220,13%,91%,1)] text-gray-600 hover:bg-gray-100"
             }`}
           >
             {item}
