@@ -20,7 +20,7 @@ const AskQuestionForm = () => {
       <div className="absolute bottom-10 right-10 w-16 h-16 bg-[#e2d4f6] rounded-full opacity-90 -z-10"></div>
       <div className="absolute top-20 right-20 w-14 h-14 bg-[#d7f2ec] rounded-full opacity-60 -z-10"></div>
 
-      <div className="relative mb-4 mt-10 z-10">
+      <div className="mt-20 relative mb-4 z-10">
         <div className="w-14 h-14 rounded-full bg-green-600 flex items-center justify-center text-white text-xl shadow-md">
           <LuLightbulb />
         </div>

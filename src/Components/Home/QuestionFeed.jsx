@@ -56,7 +56,7 @@ const questions = [
 export default function QuestionFeed() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-[hsla(226,100%,97%,1)] to-white px-4 md:px-10 py-8">
-      <h1 className="text-center text-3xl font-bold text-green-800">
+      <h1 className="mt-20 text-center text-3xl font-bold text-green-800">
         Question Feed
       </h1>
       <p className="text-center text-gray-500 mt-3">

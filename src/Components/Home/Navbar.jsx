@@ -16,7 +16,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 w-full bg-white z-50 shadow-md">
+    <nav className="fixed top-0 w-full bg-white z-50 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center relative z-50">
         <div className="flex items-center gap-3">
           <div className="lg:hidden">
@@ -55,7 +55,7 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`sticky top-[64px]  left-0 w-full border-t border-
+        className={`fixed top-[64px]  left-0 w-full border-t border-
         [hsla(220,13%,91%,1)] bg-white shadow-md overflow-hidden transition-all duration-500 ease-in-out z-40 ${
           isOpen ? "top-[64px] max-h-[500px]" : "top-[64px] max-h-0"
         }`}

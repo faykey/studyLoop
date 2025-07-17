@@ -16,10 +16,9 @@ const achievements = [
 const StreakDashboard = () => {
   return (
     <div className="bg-gradient-to-r from-[#f3f7fd] to-[#fefeff] min-h-screen flex flex-col items-center py-10 px-4 space-y-6">
-
-      {/* Top Icon and Streak */}
+ 
       <div className="relative">
-        <div className="w-16 h-16 rounded-full bg-green-600 text-white flex items-center justify-center text-2xl shadow-md">
+        <div className="mt-20 w-16 h-16 rounded-full bg-green-600 text-white flex items-center justify-center text-2xl shadow-md">
           <GiFlame />
         </div>
         <div className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black font-semibold px-2 py-[1px] rounded-full shadow">
@@ -32,7 +31,7 @@ const StreakDashboard = () => {
         <p className="text-gray-500">Keep it up! You're on fire! 🔥</p>
       </div>
 
-      {/* Stats Cards */}
+       
       <div className="flex gap-4 w-full max-w-md">
         <div className="flex-1 bg-white border-2 border-[hsla(141,84%,93%,1)] shadow-md rounded-xl px-4 py-5 text-center">
           <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white flex items-center justify-center text-lg">
@@ -48,9 +47,9 @@ const StreakDashboard = () => {
           <div className="text-lg font-semibold">45</div>
           <div className="text-sm text-gray-500">Total Days</div>
         </div>
-      </div>
+      </div> 
 
-      {/* Progress Card */}
+      
       <div className="bg-white w-full max-w-md rounded-xl p-4 shadow-md border-2 border-[hsla(141,84%,93%,1)]">
         <div className="flex justify-between items-start mb-1 text-sm font-medium text-gray-700">
           <div>
