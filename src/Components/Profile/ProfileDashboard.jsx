@@ -14,7 +14,7 @@ const ProfileDashboard = () => {
 
   return (
     <div className="relative min-h-screen bg-[#f7f9fc] flex flex-col items-center py-10 px-4 z-10">
-        <div className="absolute top-40 left-10 w-14 h-14 bg-[#f4e4d5] rounded-full opacity-80   z-0" />
+      <div className="absolute top-40 left-10 w-14 h-14 bg-[#f4e4d5] rounded-full opacity-80   z-0" />
       <div className="absolute bottom-12 right-10 w-14 h-14 bg-[#e2d4f6] rounded-full opacity-70 z-0" />
       <div className="absolute top-32 right-24 w-10 h-10 bg-[#d7f2ec] rounded-full opacity-60  z-0" />
       <div className="relative mb-4 mt-16 z-10">
@@ -33,7 +33,6 @@ const ProfileDashboard = () => {
         Manage your account and celebrate your achievements! 🎉
       </p>
 
-     
       <div className="bg-[hsla(0,0%,100%,1)] border-[hsla(220,14%,96%,1)] w-full max-w-md rounded-xl shadow-2xl px-6 py-5 mb-6 text-center">
         <div className="p-4 rounded-full inline-block mb-1">
           <FaUserAlt className="text-[hsla(142,71%,45%,1)] text-4xl" />
@@ -46,7 +45,6 @@ const ProfileDashboard = () => {
         </p>
       </div>
 
-    
       <div className="flex gap-4 w-full max-w-md mb-6">
         <div className="flex-1 bg-white border-2 border-[hsla(141,84%,93%,1)] shadow-2xl rounded-xl px-4 py-5 text-center">
           <div className="bg-gradient-to-br from-[hsla(213,94%,68%,1)] to-[hsla(271,91%,65%,1)] w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center text-white text-xl">
@@ -63,7 +61,7 @@ const ProfileDashboard = () => {
           <div className="text-sm text-gray-500">Helpful Answers</div>
         </div>
       </div>
- 
+
       <div className="bg-white shadow-2xl rounded-xl w-full max-w-md px-4 py-5 mb-6">
         <div className="flex items-center gap-2 mb-4">
           <div className="bg-gradient-to-br from-[hsla(45,93%,47%,1)] to-[hsla(25,95%,53%,1)] w-8 h-8 rounded-full flex items-center justify-center text-white text-lg">
@@ -90,7 +88,6 @@ const ProfileDashboard = () => {
         </div>
       </div>
 
-       
       <div className="bg-white shadow-2xl rounded-xl w-full max-w-md px-4 py-5">
         <div className="flex items-center gap-2 mb-4">
           <div className="bg-gradient-to-tr from-[hsla(239,84%,67%,1)] to-[hsla(271,91%,65%,1)] w-8 h-8 rounded-full flex items-center justify-center text-white">
@@ -144,7 +141,6 @@ const ProfileDashboard = () => {
   );
 };
 
- 
 const Checkbox = ({ label, value, onChange }) => (
   <label className="flex items-center justify-between gap-2 text-sm text-gray-600 cursor-pointer">
     <div className="flex items-center gap-2">{label}</div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaBookOpen, FaPaperPlane } from "react-icons/fa";
 import { LuLightbulb } from "react-icons/lu";
-import { PiPaperPlaneTiltDuotone } from "react-icons/pi";  
+import { PiPaperPlaneTiltDuotone } from "react-icons/pi";
 
 const AskQuestionForm = () => {
   const [subject, setSubject] = useState("");
@@ -28,7 +28,6 @@ const AskQuestionForm = () => {
           ✨
         </div>
       </div>
-
       <h1 className="text-3xl font-bold bg-gradient-to-br from-[hsla(142,71%,45%,1)] to-[hsla(142,71%,22%,1)] bg-clip-text text-transparent">
         Ask Your Question!
       </h1>
@@ -85,7 +84,6 @@ const AskQuestionForm = () => {
               className="w-full bg-[hsla(270,100%,98%,1)] text-sm border border-[hsla(220,13%,91%,1)] rounded-md px-4 py-2 h-24 resize-none focus:ring-2 focus:ring-purple-400 focus:outline-none"
             />
           </div>
-
           <div className="border border-gray-200 bg-gray-50 rounded-lg p-3 flex items-start gap-3">
             <input
               type="checkbox"

@@ -18,7 +18,7 @@ const LoginPage = () => {
     <div>
       <Header />
       <div className="flex items-center justify-center min-h-screen bg-green-50 relative py-16 px-4">
-         <div className="absolute bottom-[300px] md:top-[100px] md:left-[80px] left-[10px] w-12 h-12 bg-yellow-300 rounded-full opacity-70 z-0"></div>
+        <div className="absolute bottom-[300px] md:top-[100px] md:left-[80px] left-[10px] w-12 h-12 bg-yellow-300 rounded-full opacity-70 z-0"></div>
         <div className="absolute top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50 z-0"></div>
         <div className="absolute top-[120px] lg:top-[280px] lg:right-[65%] right-[50px] w-12 h-12 bg-green-200 rounded-full opacity-90 md:hidden lg:block z-10"></div>
         <div
@@ -94,7 +94,6 @@ const LoginPage = () => {
               </button>
             </div>
 
-            
             <div className="mt-4">
               <p className="text-sm text-gray-700">
                 New to{" "}

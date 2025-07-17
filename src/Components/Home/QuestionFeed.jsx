@@ -1,8 +1,14 @@
 import React from "react";
-import QuestionCard from "./QuestionCard";  
+import QuestionCard from "./QuestionCard";
 
 const filters = [
-  "All", "Math", "Science", "History", "English", "Computer Science", "Business",
+  "All",
+  "Math",
+  "Science",
+  "History",
+  "English",
+  "Computer Science",
+  "Business",
 ];
 
 const questions = [

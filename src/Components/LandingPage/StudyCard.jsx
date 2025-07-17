@@ -9,17 +9,14 @@ const StudyCard = () => {
           boxShadow: "0px 0px 0px 4px transparent",
         }}
       >
-        
         <div className="absolute top-0 right-0 w-8 h-8 rounded-full bg-yellow-300 flex items-center justify-center text-sm translate-x-1/2 -translate-y-1/2 pointer-events-none">
           ⭐
         </div>
 
-        
         <div className="absolute bottom-0 left-0 w-8 h-8 rounded-full bg-[hsla(142,69%,58%,1)] flex items-center justify-center text-sm -translate-x-1/2 translate-y-1/2 pointer-events-none">
           🎯
         </div>
 
-        
         <div className="bg-[#eaf3fe] border-[2px] outline outline-[3.5px] outline-blue-200 border-blue-100 rounded-lg px-4 py-3 flex items-start space-x-3 shadow-sm mt-2">
           <div className="text-2xl">🤔</div>
           <div>
@@ -32,7 +29,6 @@ const StudyCard = () => {
           </div>
         </div>
 
-        {/* Streak + Partner */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
           <div className="bg-orange-100 border-[2px] outline outline-[3.5px] outline-orange-200 border-orange-100 rounded-lg p-4 text-center shadow-md transform -rotate-1">
             <div className="text-2xl mb-1">🔥</div>

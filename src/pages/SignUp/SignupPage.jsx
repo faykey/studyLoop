@@ -39,7 +39,7 @@ const SignupPage = () => {
         <div className="absolute top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50 z-0"></div>
         <div className="absolute top-[120px] lg:top-[280px] lg:right-[65%] right-[50px] w-12 h-12 bg-green-200 rounded-full opacity-90 md:hidden lg:block z-10"></div>
 
-        {/* Form */}
+          {/* Form */}
         <div
           className="bg-white w-[90%] max-w-md rounded-2xl p-8 shadow-xl text-center relative z-10 overflow-hidden"
           style={{

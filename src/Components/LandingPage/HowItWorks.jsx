@@ -88,7 +88,9 @@ const HowItWorks = () => {
                 className={`relative w-[150px] h-[120px] flex items-center justify-center text-4xl rounded-2xl border shadow-md ${
                   step.bg
                 } ${step.rotate} ${
-                  idx === 0 || idx === 2 ? "md:left-[80px] left-[10px] lg:left-[150px]" : ""
+                  idx === 0 || idx === 2
+                    ? "md:left-[80px] left-[10px] lg:left-[150px]"
+                    : ""
                 }`}
               >
                 {step.emoji}

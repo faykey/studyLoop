@@ -16,13 +16,16 @@ export default function QuestionCard({ data }) {
 
   return (
     <div className="max-w-2xl w-full mx-auto bg-white relative rounded-xl shadow-xl p-6 flex flex-col gap-4   overflow-hidden transition-all duration-300 hover:shadow-2xl">
-      
       <div className="absolute top-0 right-0 w-14 h-14 bg-gradient-to-br from-[hsla(53,98%,77%,1)] to-[hsla(32,98%,83%,1)] opacity-20 rounded-bl-full pointer-events-none"></div>
 
-      <h2 className="text-lg md:text-xl font-semibold text-gray-800">{question}</h2>
+      <h2 className="text-lg md:text-xl font-semibold text-gray-800">
+        {question}
+      </h2>
 
       <div className="flex gap-2 flex-wrap items-center">
-        <span className={`text-xs text-white px-3 py-1 rounded-full font-medium ${badgeColor}`}>
+        <span
+          className={`text-xs text-white px-3 py-1 rounded-full font-medium ${badgeColor}`}
+        >
           {category}
         </span>
 
