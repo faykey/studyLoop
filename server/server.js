@@ -29,6 +29,9 @@ app.use(express.json());  // <--- MUST be here
 app.get('/test', (req, res) => {
     res.send('Test route works!');
 });
+app.get("/", (req, res) => {
+    res.send("API is running...");
+});
 
 app.use("/api/user", userRoutes);
 app.use("/api/questions", questionRoutes);
