@@ -1,3 +1,29 @@
+<<<<<<< HEAD
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+// import Navbar from "./Components/Navbar/Navbar";
+// import Footer from "./Components/Footer/Footer";
+import Home from "./Pages/Home/Home";
+// import Error from "./Pages/Error/Error";
+// import ScrollToTop from "./Components/ScrollToTop";
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* <ScrollToTop /> */}
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="contact" element={<Contact />} /> */}
+        {/* <Route path="*" element={<Error />} /> */}
+      </Routes>
+      {/* <Footer /> */}
+    </BrowserRouter>
+  );
+}
+
+export default App;
+=======
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -33,3 +59,4 @@ function App() {
 }
 
 export default App
+>>>>>>> 9e0e1afcdf514ba0d59b335806a871f76c6ef8ce

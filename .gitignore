@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Node modules
 client/node_modules/
 server/node_modules/
@@ -6,12 +7,16 @@ server/node_modules/
 client/dist/
 server/dist/
 
+=======
+<<<<<<< HEAD
+>>>>>>> 4bf7d7ee1b397aaaf69489a2492ee54be7a4747d
 # Logs
 logs
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+<<<<<<< HEAD
 
 # Environment files
 .env
@@ -28,3 +33,28 @@ Thumbs.db
 
 # Other cache
 *.cache
+=======
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+=======
+/client/node_modules
+/server/node_modules
+/client/dist
+>>>>>>> 9e0e1afcdf514ba0d59b335806a871f76c6ef8ce
+>>>>>>> 4bf7d7ee1b397aaaf69489a2492ee54be7a4747d
