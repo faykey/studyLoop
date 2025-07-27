@@ -1,6 +1,6 @@
 import express from "express";
 import { getUserStreak, incrementStreak, resetStreak } from "../controllers/streakController.js";
-import { protect } from "../middlewares/authMiddleware.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
