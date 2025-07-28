@@ -41,3 +41,18 @@ export function loginUser(email, password) {
 export function getUserProfile() {
     return request("/api/user/me", "GET", null, true);
 }
+
+// Get total question count by logged-in user
+export function getUserQuestionCount() {
+    return request("/api/questions/user/count", "GET", null, true);
+}
+
+// Get total answer count by logged-in user
+export function getUserAnswerCount() {
+    return request("/api/answers/user/count", "GET", null, true);
+}
+
+// Fetch full streak + achievements info
+export function getUserStreakDetails() {
+    return request("/api/streak/full", "GET", null, true);
+}
