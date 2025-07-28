@@ -54,5 +54,5 @@ export function getUserAnswerCount() {
 
 // Fetch full streak + achievements info
 export function getUserStreakDetails() {
-    return request("/api/streak/full", "GET", null, true);
+    return request("/api/streaks/full", "GET", null, true);
 }
