@@ -1,3 +1,4 @@
+// Same imports...
 import React, { useEffect, useState } from "react";
 import { FaCalendarAlt, FaTrophy } from "react-icons/fa";
 import { GiFlame } from "react-icons/gi";
@@ -16,39 +17,58 @@ const STREAK_GOALS = [
 const StreakDashboard = () => {
   const [streak, setStreak] = useState(null);
   const [achievements, setAchievements] = useState([]);
+  const [weeklyActivity, setWeeklyActivity] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     getUserStreakDetails()
-      .then(({ streak, unlockedAchievements }) => {
-        setStreak(streak);
-        const earnedIds = unlockedAchievements.map(a => a.achievement._id);
-        const mapped = STREAK_GOALS.map(goal => {
-          const matched = unlockedAchievements.find(
-            a => a.achievement.title.toLowerCase() === goal.title.toLowerCase()
-          );
-          return {
-            ...goal,
-            earned: Boolean(matched),
-          };
+      .then((data) => {
+        if (!data) throw new Error("No streak data received");
+
+        const {
+          currentStreak = 0,
+          bestStreak = 0,
+          totalDays = 0,
+          achievements: unlocked = [],
+          weeklyActivity = [],
+        } = data;
+
+        setStreak({
+          currentStreak,
+          longestStreak: bestStreak,
+          totalStudyDays: totalDays,
         });
+
+        setWeeklyActivity(weeklyActivity);
+
+        const mapped = STREAK_GOALS.map((goal) => {
+          const earned = unlocked.some(
+            (a) => a.title.toLowerCase() === goal.title.toLowerCase()
+          );
+          return { ...goal, earned };
+        });
+
         setAchievements(mapped);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Failed to load streak data:", err);
-      });
+      })
+      .finally(() => setLoading(false));
   }, []);
 
-  if (!streak) return <div className="text-center py-10">Loading streak...</div>;
+  if (loading) return <div className="text-center py-10">Loading streak...</div>;
+  if (!streak) return <div className="text-center py-10 text-red-500">Streak data not found.</div>;
 
   const currentStreak = streak.currentStreak || 0;
   const longestStreak = streak.longestStreak || 0;
 
-  const nextGoal = STREAK_GOALS.find(goal => goal.days > currentStreak);
+  const nextGoal = STREAK_GOALS.find((goal) => goal.days > currentStreak);
   const percentToNext = nextGoal ? Math.floor((currentStreak / nextGoal.days) * 100) : 100;
   const daysLeft = nextGoal ? nextGoal.days - currentStreak : 0;
 
   return (
     <div className="bg-gradient-to-r from-[#f3f7fd] to-[#fefeff] min-h-screen flex flex-col items-center py-10 px-4 space-y-6">
+
       {/* 🔥 Streak Icon */}
       <div className="relative">
         <div className="mt-20 w-16 h-16 rounded-full bg-green-600 text-white flex items-center justify-center text-2xl shadow-md">
@@ -59,13 +79,13 @@ const StreakDashboard = () => {
         </div>
       </div>
 
-      {/* 🔢 Streak Info */}
+      {/* 🔢 Info */}
       <div className="text-center">
         <h1 className="text-2xl font-bold text-gray-800">{currentStreak} Day Streak!</h1>
         <p className="text-gray-500">Keep it up! You're on fire! 🔥</p>
       </div>
 
-      {/* 🏆 Stats */}
+      {/* 📊 Stats */}
       <div className="flex gap-4 w-full max-w-md">
         <div className="flex-1 bg-white border-2 border-[hsla(141,84%,93%,1)] shadow-md rounded-xl px-4 py-5 text-center">
           <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-500 text-white flex items-center justify-center text-lg">
@@ -83,7 +103,7 @@ const StreakDashboard = () => {
         </div>
       </div>
 
-      {/* 🎯 Progress to Next Goal */}
+      {/* 🎯 Goal Progress */}
       {nextGoal && (
         <div className="bg-white w-full max-w-md rounded-xl p-4 shadow-md border-2 border-[hsla(141,84%,93%,1)]">
           <div className="flex justify-between items-start mb-1 text-sm font-medium text-gray-700">
@@ -108,27 +128,27 @@ const StreakDashboard = () => {
         </div>
       )}
 
-      {/* 📅 Weekly Calendar (Placeholder for now) */}
+      {/* 📅 Weekly Calendar - Now Dynamic */}
       <div className="bg-white w-full max-w-md rounded-xl p-4 shadow-md border-2 border-[hsla(141,84%,93%,1)]">
         <div className="text-sm font-medium text-gray-700 mb-3">This Week</div>
         <div className="grid grid-cols-7 text-sm text-center">
-          {["S", "M", "T", "W", "T", "F", "S"].map((day, i) => (
-            <div key={day}>
+          {["S", "M", "T", "W", "T", "F", "S"].map((label, i) => (
+            <div key={i}>
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-1 ${i < 5
-                    ? "bg-gradient-to-r from-[hsla(142,71%,45%,1)] to-[hsla(160,84%,39%,1)] text-white"
+                className={`w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-1 ${weeklyActivity[i]
+                    ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white"
                     : "border border-gray-300 text-gray-600"
                   }`}
               >
-                {i < 5 ? "✓" : i + 20}
+                {weeklyActivity[i] ? "✓" : ""}
               </div>
-              <div className="text-xs text-gray-600">{day}</div>
+              <div className="text-xs text-gray-600">{label}</div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* 👑 Achievements */}
+      {/* 🏅 Achievements */}
       <div className="bg-white w-full max-w-md rounded-xl p-6 shadow-md border-2 border-[hsla(141,84%,93%,1)]">
         <div className="text-center text-sm font-bold text-gray-700 mb-4">
           👑 Achievements
