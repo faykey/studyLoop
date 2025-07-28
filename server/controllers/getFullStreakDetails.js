@@ -7,10 +7,15 @@ export const getFullStreakDetails = async (req, res) => {
     try {
         const userId = req.user._id;
 
-        // 1. Get streak
-        const streak = await Streak.findOne({ user: userId });
+        // 1. Get or create streak
+        let streak = await Streak.findOne({ user: userId });
         if (!streak) {
-            return res.status(404).json({ message: "Streak not found" });
+            streak = await Streak.create({
+                user: userId,
+                currentStreak: 0,
+                longestStreak: 0,
+                lastUpdated: new Date(),
+            });
         }
 
         // 2. Total study days
@@ -18,7 +23,7 @@ export const getFullStreakDetails = async (req, res) => {
             ? Math.floor((new Date() - new Date(streak.createdAt)) / (1000 * 60 * 60 * 24)) + 1
             : streak.currentStreak;
 
-        // 3. Weekly activity (mocked as active for last N days)
+        // 3. Weekly activity (based on current streak for now)
         const weeklyActivity = Array(7).fill(false);
         const daysActive = Math.min(streak.currentStreak, 7);
         for (let i = 0; i < daysActive; i++) {
