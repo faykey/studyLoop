@@ -1,7 +1,7 @@
 import express from "express";
 import { getUserStreak, incrementStreak, resetStreak } from "../controllers/streakController.js";
 import { protect } from "../middleware/authMiddleware.js";
-import { getFullStreakDetails } from "../controllers/streakController.js";
+import { getFullStreakDetails } from "../controllers/getFullStreakDetails.js";
 
 const router = express.Router();
 
