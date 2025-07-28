@@ -6,7 +6,11 @@ import {
   FaTrophy,
   FaCog,
 } from "react-icons/fa";
-import { getUserProfile } from "../../utils/api";
+import {
+  getUserProfile,
+  getUserQuestionCount,
+  getUserAnswerCount,
+} from "../../utils/api";
 
 const ProfileDashboard = () => {
   const [user, setUser] = useState(null);
@@ -15,6 +19,8 @@ const ProfileDashboard = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [questionCount, setQuestionCount] = useState(0);
+  const [answerCount, setAnswerCount] = useState(0);
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -27,7 +33,20 @@ const ProfileDashboard = () => {
         setLoading(false);
       }
     };
+
+    const fetchCounts = async () => {
+      try {
+        const q = await getUserQuestionCount();
+        const a = await getUserAnswerCount();
+        setQuestionCount(q.count || 0);
+        setAnswerCount(a.count || 0);
+      } catch (err) {
+        console.error("Error fetching question/answer count", err);
+      }
+    };
+
     fetchProfile();
+    fetchCounts();
   }, []);
 
   if (loading) {
@@ -38,7 +57,6 @@ const ProfileDashboard = () => {
     return <div className="text-center mt-10 text-red-500">{error}</div>;
   }
 
-  // Format join date if available
   const joinDate = user.createdAt
     ? new Date(user.createdAt).toLocaleDateString("en-US", {
       year: "numeric",
@@ -86,8 +104,20 @@ const ProfileDashboard = () => {
 
       {/* Stats */}
       <div className="flex gap-4 w-full max-w-md mb-6">
-        <StatCard icon={<FaRegCommentDots />} colorFrom="#60a5fa" colorTo="#7c3aed" label="Questions Asked" value="12" />
-        <StatCard icon={<FaHeart />} colorFrom="#ec4899" colorTo="#ef4444" label="Helpful Answers" value="48" />
+        <StatCard
+          icon={<FaRegCommentDots />}
+          colorFrom="#60a5fa"
+          colorTo="#7c3aed"
+          label="Questions Asked"
+          value={questionCount}
+        />
+        <StatCard
+          icon={<FaHeart />}
+          colorFrom="#ec4899"
+          colorTo="#ef4444"
+          label="Helpful Answers"
+          value={answerCount}
+        />
       </div>
 
       {/* Achievements */}
