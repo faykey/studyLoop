@@ -92,3 +92,14 @@ export const deleteAnswer = async (req, res) => {
         res.status(500).json({ message: "Failed to delete answer", error: error.message });
     }
 };
+
+// 📌 Get total answers made by the user
+export const getUserAnswerCount = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const count = await Answer.countDocuments({ user: userId });
+        res.status(200).json({ count });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to get answer count", error: error.message });
+    }
+};

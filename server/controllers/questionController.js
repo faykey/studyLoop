@@ -114,3 +114,14 @@ export const deleteQuestion = async (req, res) => {
         res.status(500).json({ message: "Failed to delete question", error });
     }
 };
+
+// 📌 Get total number of questions by the logged-in user
+export const getUserQuestionCount = async (req, res) => {
+    try {
+        const userId = req.user._id;
+        const count = await Question.countDocuments({ user: userId });
+        res.status(200).json({ count });
+    } catch (error) {
+        res.status(500).json({ message: "Failed to get question count", error });
+    }
+};
