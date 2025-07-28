@@ -2,51 +2,65 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SuccessModal from "../../Components/SuccessModal";
 import Header from "../../Components/LandingPage/Header";
+import { registerUser } from "../../utils/api";
 
 const SignupPage = () => {
   const navigate = useNavigate();
   const [showSuccess, setShowSuccess] = useState(false);
   const [form, setForm] = useState({
-    name: "",
+    fullName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const handleChange = (e) =>
+  const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submission triggered", form);
+
     if (form.password !== form.confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
 
-    setShowSuccess(true);
-    setTimeout(() => {
-      setShowSuccess(false);
-      navigate("/home");
-    }, 2000);
+    try {
+      const res = await registerUser(form.fullName, form.email, form.password);
+      console.log("Registration response:", res);
+
+      if (res.token) {
+        localStorage.setItem("token", res.token);
+        setShowSuccess(true);
+        setTimeout(() => {
+          setShowSuccess(false);
+          navigate("/home");
+        }, 2000);
+      } else {
+        throw new Error("No token received.");
+      }
+    } catch (err) {
+      console.error("Registration failed:", err);
+      alert(err.message || "Registration failed. Please try again.");
+    }
   };
 
   return (
     <>
       <Header />
       <div className="flex items-center justify-center min-h-screen py-16 bg-green-50 relative z-10">
-       
+        {/* Decorative circles */}
         <div className="absolute bottom-[300px] md:top-[100px] md:left-[80px] left-[10px] w-12 h-12 bg-yellow-300 rounded-full opacity-70 z-0"></div>
         <div className="absolute top-[100px] md:right-40 right-9 w-10 h-10 bg-blue-200 rounded-full opacity-50 z-0"></div>
         <div className="absolute top-[120px] lg:top-[280px] lg:right-[65%] right-[50px] w-12 h-12 bg-green-200 rounded-full opacity-90 md:hidden lg:block z-10"></div>
 
-           {/* Form */}
+        {/* Form Card */}
         <div
           className="bg-white w-[90%] max-w-md rounded-2xl p-8 shadow-xl text-center relative z-10 overflow-hidden"
-          style={{
-            border: "3px solid hsla(220, 14%, 96%, 1)",
-          }}
+          style={{ border: "3px solid hsla(220, 14%, 96%, 1)" }}
         >
-          
           <div className="absolute top-0 left-0 w-32 h-32 bg-blue-100 rounded-full -translate-x-1/2 -translate-y-1/2 z-0"></div>
 
           <div className="text-4xl mb-2">🎉</div>
@@ -59,15 +73,13 @@ const SignupPage = () => {
             <div>
               <label className="text-sm font-medium text-gray-700">Full Name</label>
               <input
-                name="name"
-                value={form.name}
+                name="fullName"
+                value={form.fullName}
                 onChange={handleChange}
                 type="text"
                 placeholder="Your awesome name"
                 className="w-full mt-1 p-3 rounded-xl focus:outline-none placeholder-[hsla(142,71%,45%,1)]"
-                style={{
-                  backgroundColor: "hsla(60, 100%, 50%, 0.38)",
-                }}
+                style={{ backgroundColor: "hsla(60, 100%, 50%, 0.38)" }}
                 required
               />
             </div>
@@ -81,9 +93,7 @@ const SignupPage = () => {
                 type="email"
                 placeholder="your@email.com"
                 className="w-full mt-1 p-3 rounded-xl focus:outline-none placeholder-[hsla(142,71%,45%,1)]"
-                style={{
-                  backgroundColor: "hsla(60, 100%, 50%, 0.38)",
-                }}
+                style={{ backgroundColor: "hsla(60, 100%, 50%, 0.38)" }}
                 required
               />
             </div>
@@ -97,9 +107,7 @@ const SignupPage = () => {
                 type="password"
                 placeholder="Enter password"
                 className="w-full mt-1 p-3 rounded-xl focus:outline-none placeholder-[hsla(142,71%,45%,1)]"
-                style={{
-                  backgroundColor: "hsla(60, 100%, 50%, 0.38)",
-                }}
+                style={{ backgroundColor: "hsla(60, 100%, 50%, 0.38)" }}
                 required
               />
             </div>
@@ -113,9 +121,7 @@ const SignupPage = () => {
                 type="password"
                 placeholder="Confirm password"
                 className="w-full mt-1 mb-2 p-3 rounded-xl focus:outline-none placeholder-[hsla(142,71%,45%,1)]"
-                style={{
-                  backgroundColor: "hsla(60, 100%, 50%, 0.38)",
-                }}
+                style={{ backgroundColor: "hsla(60, 100%, 50%, 0.38)" }}
                 required
               />
             </div>
@@ -133,13 +139,9 @@ const SignupPage = () => {
           </form>
 
           <p className="text-xs text-gray-500 mt-4">
-            By signing up, you agree to our{" "}
-            <u className="no-underline">Terms of Service</u> and{" "}
-            <u className="no-underline">Privacy Policy</u>.
+            By signing up, you agree to our <u className="no-underline">Terms of Service</u> and <u className="no-underline">Privacy Policy</u>.
           </p>
-          <p className="text-xs text-gray-500 mt-1">
-            No spam, just learning! 🧠
-          </p>
+          <p className="text-xs text-gray-500 mt-1">No spam, just learning! 🧠</p>
 
           <div className="mt-10 border-t border-gray-200 pt-4">
             <p className="text-sm text-gray-700 mb-2">Already have an account?</p>
